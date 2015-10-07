@@ -9,7 +9,7 @@ exports.serializeForm = function(node) {
 		memo[name] = data.getAll(name); // NB: `FormData` retains order
 		return memo;
 	}, {});
-}
+};
 
 exports.createElement = function(tag, options) {
 	options = options || {};
@@ -27,4 +27,13 @@ exports.replaceNode = function(oldNode, newNode) {
 	var container = oldNode.parentNode;
 	container.insertBefore(newNode, oldNode);
 	container.removeChild(oldNode);
+};
+
+exports.transferAttributes = function(source, target) {
+	[].forEach.call(source.attributes, function(attr) {
+		var name = attr.name;
+		if(!target.getAttribute(name)) {
+			target.setAttribute(name, attr.value);
+		}
+	});
 };
