@@ -1,4 +1,4 @@
-// adapted from StuffJS (https://github.com/bengillies/stuff-js)
+// adapted from StuffJS <https://github.com/bengillies/stuff-js>
 module.exports = function(delay, fn) {
 	var timer;
 	return function() {
