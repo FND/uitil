@@ -2,9 +2,9 @@
 // (ideally, `FormData` should provide this functionality - but doesn't)
 exports.serializeForm = function(node) {
 	var selector = "input[name], textarea[name], select[name], button[name]";
-	var fields = node.querySelectorAll(selector);
+	var fields = exports.query(node, selector);
 	var data = new FormData(node);
-	return [].reduce.call(fields, function(memo, field) {
+	return fields.reduce(function(memo, field) {
 		var name = field.getAttribute("name");
 		memo[name] = data.getAll(name); // NB: `FormData` retains order
 		return memo;
@@ -36,4 +36,13 @@ exports.transferAttributes = function(source, target) {
 			target.setAttribute(name, attr.value);
 		}
 	});
+};
+
+exports.query = function(node, selector) {
+	if(!selector) {
+		selector = node;
+		node = document;
+	}
+	var nodes = node.querySelectorAll(selector);
+	return [].slice.call(nodes);
 };
