@@ -11,9 +11,19 @@ exports.serializeForm = function(node) {
 	}, {});
 };
 
-exports.createElement = function(tag, options) {
+exports.createElement = function(tag, attribs, options) {
+	if(!options) { // no `attribs`; shift arguments -- XXX: unintuitive signature?
+		options = attribs;
+		attribs = null;
+	}
 	options = options || {};
+	attribs = attribs || {};
+
 	var node = document.createElement(tag);
+	Object.keys(attribs).forEach(function(attr) {
+		node.setAttribute(attr, attribs[attr]);
+	});
+
 	if(options.text) {
 		node.textContent = options.text;
 	}
