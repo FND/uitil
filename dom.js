@@ -12,7 +12,7 @@ exports.serializeForm = function(node) {
 };
 
 exports.createElement = function(tag, attribs, options) {
-	if(!options) { // no `attribs`; shift arguments -- XXX: unintuitive signature?
+	if(!options && attribs && (attribs.text || attribs.parent)) { // no `attribs`; shift arguments -- XXX: unintuitive signature?
 		options = attribs;
 		attribs = null;
 	}
