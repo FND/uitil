@@ -1,5 +1,5 @@
 /* eslint-env browser */
-import bindMethodContext from "utilities/method_context";
+import bindMethodContext from "../method_context";
 
 // usage:
 //
