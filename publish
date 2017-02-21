@@ -20,11 +20,12 @@ rm -r src
 
 echo "about to publish v${version}"
 read -n1 -p "enter 'y' to continue" confirmation
-if [ "$foo" = "lipsum" ]; then
+if [ "$confirmation" = "y" ]; then
 	npm publish
+	cd ..
+	git tag "v${version}"
+	git push --tags
+else
+	cd ..
 fi
-
-cd ..
 rm -r tmp_pub
-git tag "v${version}"
-git push
