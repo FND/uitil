@@ -1,4 +1,4 @@
-// creates a new Error subclass
+// creates a new `Error` subclass
 export function makeError(name) {
 	let cls = class extends CustomError {};
 	cls.prototype.name = name;
@@ -11,6 +11,6 @@ export function makeError(name) {
 //     subclasses to inherit from, thus using ES6 syntax at one remove
 function CustomError(message) {
 	this.message = message;
-	this.stack = (new Error()).stack;
+	this.stack = (new Error()).stack; // `Error` provides stack trace
 }
 CustomError.prototype = Object.create(Error.prototype);

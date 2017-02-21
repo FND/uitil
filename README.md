@@ -1,3 +1,5 @@
 uitil - a tiny collection of JavaScript utility functions
 
-modules use ES6 or CommonJS to easily allow picking and choosing
+most functions are merely convenience wrappers around native APIs and are
+intended primarily as a reference - as such, it is recommended to inspect the
+source code before use
