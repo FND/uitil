@@ -3,6 +3,10 @@ export function find(node, selector) {
 	return [].slice.call(nodes);
 }
 
+export function prependChild(node, container) {
+	container.insertBefore(node, container.firstChild);
+}
+
 export function replaceNode(oldNode, ...newNodes) {
 	let container = oldNode.parentNode;
 	newNodes.forEach(node => {

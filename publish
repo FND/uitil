@@ -9,6 +9,8 @@ version=`grep '^  "version"' package.json | sed -e 's/^  "version": "\(.*\)".*$/
 # ensure we have no unstaged changes
 git diff --exit-code --quiet # TODO: report error
 
+npm test
+
 # selectively determine package contents
 mkdir tmp_pub
 git ls-tree --name-only HEAD | while read filename; do
@@ -24,7 +26,7 @@ if [ "$confirmation" = "y" ]; then
 	npm publish
 	cd ..
 	git tag "v${version}"
-	git push --tags
+	git push --tags origin master
 else
 	cd ..
 fi
