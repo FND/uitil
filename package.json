@@ -16,7 +16,7 @@
     "test": "eslint --cache src && echo ✓"
   },
   "devDependencies": {
-    "eslint": "^3.16.0",
+    "eslint": "^3.16.1",
     "eslint-config-fnd": "^1.0.3"
   }
 }

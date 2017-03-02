@@ -1,3 +1,4 @@
+// NB: not necessary when using ES6 spread syntax: `[...nodes].map(…)`
 export function find(node, selector) {
 	let nodes = node.querySelectorAll(selector);
 	return [].slice.call(nodes);
