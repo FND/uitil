@@ -10,7 +10,7 @@ export default function debounce(delay, ctx, fn) {
 	}
 
 	let timer;
-	return _ => {
+	return function() {
 		let args = arguments;
 		if(timer) {
 			clearTimeout(timer);
