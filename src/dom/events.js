@@ -11,3 +11,11 @@ export function dispatchEvent(emitter, name, payload, options = {}) {
 	let ev = new CustomEvent(name, options);
 	emitter.dispatchEvent(ev);
 }
+
+// generate a native DOM event (e.g. simulating a click interaction)
+// adapted from http://stackoverflow.com/a/2706236
+export function dispatchDOMEvent(node, name) {
+	let ev = document.createEvent("Events");
+	ev.initEvent(name, true, false);
+	node.dispatchEvent(ev);
+}
