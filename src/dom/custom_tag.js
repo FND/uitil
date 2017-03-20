@@ -3,7 +3,7 @@ import bindMethodContext from "../method_context";
 
 // usage:
 //
-//    class MyElement extends CustomElement {
+//    class MyElement extends CustomTag {
 //      static get boundMethods () {
 //        return ["myEventHandler", …];
 //      }
@@ -18,8 +18,9 @@ import bindMethodContext from "../method_context";
 // note, however, that event-handler methods usually do not need to be bound
 // because they are invoked with the respective DOM node as execution context
 // (i.e. `this`) anyway
-export default class CustomElement extends HTMLElement {
-	constructor(self) { // NB: `self` only required due to polyfill
+export default class CustomTag extends HTMLElement {
+	// NB: `self` only required due to document-register-element polyfill
+	constructor(self) {
 		self = super(self);
 
 		let { boundMethods } = self.constructor;
