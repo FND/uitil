@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>uitil tests</title>
+</head>
+
+<body>
+	<h1>uitil tests</h1>
+
+	<form>
+		<input type="hidden" name="id" value="123">
+
+		<input type="search" name="query">
+
+		<label>
+			<input type="checkbox" name="case-sensitive" value="1">
+			case-sensitive
+		</label>
+
+		<div>
+			<label>
+				<input type="radio" name="category" value="foo">
+				Foo
+			</label>
+			<label>
+				<input type="radio" name="category" value="bar" checked>
+				Bar
+			</label>
+			<label>
+				<input type="radio" name="category" value="baz">
+				Baz
+			</label>
+		</div>
+
+		<select name="color">
+			<option>red</option>
+			<option>green</option>
+			<option>blue</option>
+		</select>
+
+		<select name="tags" multiple>
+			<option>foo</option>
+			<option>bar</option>
+			<option>baz</option>
+		</select>
+
+		<button type="button" name="switch" value="1">toggle</button>
+
+		<div>
+			<button type="reset">reset</button>
+			<button type="submit">submit</button>
+		</div>
+	</form>
+
+	<script src="dist/bundle.js"></script>
+</body>
+
+</html>

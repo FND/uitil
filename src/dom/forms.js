@@ -1,36 +1,60 @@
 /* eslint-env browser */
 import { find } from "./";
 
-const FIELD_TAGS = ["input", "textarea", "select", "button"];
-
+// stringify form data as `application/x-www-form-urlencoded`
 // required due to insufficient browser support for `FormData`
-// NB: only supports a subset of form fields, notably excluding file inputs
-export default class SimpleFormData {
-	constructor(formNode) {
-		this.form = formNode;
-	}
-
-	// associates fields with their corresponding values
-	// (ideally, `FormData` should provide this functionality - but doesn't)
-	serialize() {
-		return this.fields.reduce(function(memo, field) {
-			let name = field.getAttribute("name");
-			if(!memo[name]) {
-				memo[name] = [];
+// NB: only supports a subset of form fields, notably excluding buttons and file inputs
+export function serializeForm(form) {
+	let selector = ["input", "textarea", "select"].
+		map(tag => `${tag}[name]:not(:disabled)`).join(", ");
+	let radios = {};
+	return find(form, selector).reduce((params, node) => {
+		let { name } = node;
+		let value;
+		switch(node.nodeName.toLowerCase()) {
+		case "textarea":
+			value = node.value;
+			break;
+		case "select":
+			value = node.multiple ?
+				find(node, "option:checked").map(opt => opt.value) :
+				node.value;
+			break;
+		case "input":
+			switch(node.type) {
+			case "file":
+				console.warn("ignoring unsupported file-input field");
+				break;
+			case "checkbox":
+				if(node.checked) {
+					value = node.value;
+				}
+				break;
+			case "radio":
+				if(!radios[name]) {
+					value = form.
+						querySelector(`input[type=radio][name=${name}]:checked`).
+						value;
+					radios[name] = true;
+				}
+				break;
+			default:
+				value = node.value;
+				break;
 			}
-			memo[name].push(field.value);
-			return memo;
-		}, {});
-	}
-
-	get fields() {
-		let { form } = this;
-
-		if(form.querySelector("input[type=file]:not(:disabled)")) {
-			throw new Error("file inputs are unsupported");
+			break;
 		}
 
-		let selectors = FIELD_TAGS.map(tag => `${tag}[name]:not(:disabled)`);
-		return find(this.form, selectors.join(", "));
-	}
+		if(value !== undefined) {
+			let values = value || [""];
+			if(!values.pop) {
+				values = [values];
+			}
+			values.forEach(value => {
+				let param = [name, value].map(encodeURIComponent).join("=");
+				params.push(param);
+			});
+		}
+		return params;
+	}, []).join("&");
 }

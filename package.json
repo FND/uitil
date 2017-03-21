@@ -13,7 +13,7 @@
     "url": "https://github.com/FND/uitil/issues"
   },
   "scripts": {
-    "test": "eslint --cache src && echo ✓"
+    "test": "eslint --cache src test/*.js test/src && echo ✓"
   },
   "devDependencies": {
     "eslint": "^3.18.0",
