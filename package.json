@@ -1,6 +1,6 @@
 {
   "name": "uitil",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "uitil - a tiny collection of JavaScript utility functions",
   "author": "FND",
   "license": " Apache-2.0",
@@ -16,7 +16,7 @@
     "test": "eslint --cache src && echo ✓"
   },
   "devDependencies": {
-    "eslint": "^3.16.1",
-    "eslint-config-fnd": "^1.0.3"
+    "eslint": "^3.18.0",
+    "eslint-config-fnd": "^1.1.0"
   }
 }
