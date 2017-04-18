@@ -4,13 +4,13 @@ import bindMethodContext from "../method_context";
 // usage:
 //
 //    class MyElement extends CustomTag {
-//      static get boundMethods () {
+//      static get boundMethods() {
 //        return ["myEventHandler", …];
 //      }
 //
 //      …
 //
-//      myEventHandler (ev) {
+//      myEventHandler(ev) {
 //        …
 //      }
 //    }
