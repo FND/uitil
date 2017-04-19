@@ -30,7 +30,10 @@ export function createElement(tag, params, ...children) {
 	});
 
 	children.forEach(child => {
-		node.appendChild(child.substr ? document.createTextNode(child) : child);
+		if(child.substr || (typeof child === "number")) {
+			child = document.createTextNode(child);
+		}
+		node.appendChild(child);
 	});
 
 	return node;
