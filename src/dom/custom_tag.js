@@ -4,15 +4,15 @@ import bindMethodContext from "../method_context";
 // usage:
 //
 //    class MyElement extends CustomTag {
-//      static get boundMethods() {
-//        return ["myEventHandler", …];
-//      }
+//        static get boundMethods() {
+//            return ["myEventHandler", …];
+//        }
 //
-//      …
-//
-//      myEventHandler(ev) {
 //        …
-//      }
+//
+//        myEventHandler(ev) {
+//            …
+//        }
 //    }
 //
 // note, however, that event-handler methods usually do not need to be bound
