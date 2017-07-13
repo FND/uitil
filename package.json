@@ -1,22 +1,22 @@
 {
-  "name": "uitil",
-  "version": "1.8.0",
-  "description": "uitil - a tiny collection of JavaScript utility functions",
-  "author": "FND",
-  "license": " Apache-2.0",
-  "homepage": "https://github.com/FND/uitil",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/FND/uitil.git"
-  },
-  "bugs": {
-    "url": "https://github.com/FND/uitil/issues"
-  },
-  "scripts": {
-    "test": "eslint --cache src && echo ✓"
-  },
-  "devDependencies": {
-    "eslint": "^3.18.0",
-    "eslint-config-fnd": "^1.1.0"
-  }
+	"name": "uitil",
+	"version": "1.8.0",
+	"description": "uitil - a tiny collection of JavaScript utility functions",
+	"author": "FND",
+	"license": " Apache-2.0",
+	"homepage": "https://github.com/FND/uitil",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/FND/uitil.git"
+	},
+	"bugs": {
+		"url": "https://github.com/FND/uitil/issues"
+	},
+	"scripts": {
+		"test": "eslint --cache src && echo ✓"
+	},
+	"devDependencies": {
+		"eslint": "^3.18.0",
+		"eslint-config-fnd": "^1.1.0"
+	}
 }
