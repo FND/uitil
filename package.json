@@ -3,7 +3,7 @@
 	"version": "1.8.0",
 	"description": "uitil - a tiny collection of JavaScript utility functions",
 	"author": "FND",
-	"license": " Apache-2.0",
+	"license": "Apache-2.0",
 	"homepage": "https://github.com/FND/uitil",
 	"repository": {
 		"type": "git",
@@ -17,6 +17,7 @@
 	},
 	"devDependencies": {
 		"eslint": "^3.18.0",
-		"eslint-config-fnd": "^1.1.0"
+		"eslint-config-fnd": "^1.1.0",
+		"release-util-fnd": "^1.0.0"
 	}
 }
