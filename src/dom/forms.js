@@ -1,6 +1,6 @@
 /* eslint-env browser */
 import { find } from "./";
-import { httpRequest } from "./http";
+import httpRequest from "./http";
 
 export function submit(form, { cors } = {}) {
 	let { method } = form;
