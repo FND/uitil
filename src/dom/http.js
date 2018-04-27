@@ -1,6 +1,6 @@
 /* eslint-env browser */
 export default function httpRequest(method, uri, headers, body,
-		{ strict, cors } = {}) {
+		{ cors, strict } = {}) {
 	let options = {
 		method,
 		credentials: cors ? "include" : "same-origin"
@@ -15,7 +15,7 @@ export default function httpRequest(method, uri, headers, body,
 	let res = fetch(uri, options);
 	return !strict ? res : res.then(res => {
 		if(!res.ok) {
-			throw new Error(`unexpected response: ${res.status}`);
+			throw new Error(`unexpected ${res.status} response at ${uri}`);
 		}
 		return res;
 	});
