@@ -7,9 +7,6 @@ npm test
 
 target_dir=`create_package`
 # simplify import paths
-cd "$target_dir"
-mv src/* ./
-rm -r src
-cd -
+(cd "$target_dir"; mv src/* ./; rm -r src)
 
 publish_package
