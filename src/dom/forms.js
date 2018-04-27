@@ -2,7 +2,7 @@
 import { find } from "./";
 import httpRequest from "./http";
 
-export function submit(form, { cors } = {}) {
+export function submit(form, { cors, strict } = {}) {
 	let { method } = form;
 	method = method ? method.toUpperCase() : "GET";
 	let uri = form.action;
@@ -20,7 +20,7 @@ export function submit(form, { cors } = {}) {
 		};
 		body = payload;
 	}
-	return httpRequest(method, uri, headers, body, { cors });
+	return httpRequest(method, uri, headers, body, { cors, strict });
 }
 
 // stringify form data as `application/x-www-form-urlencoded`
