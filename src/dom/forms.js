@@ -2,23 +2,21 @@
 import { find } from "./";
 import httpRequest from "./http";
 
-export function submit(form, { cors, strict } = {}) {
+export function submit(form, { headers, cors, strict } = {}) {
 	let { method } = form;
 	method = method ? method.toUpperCase() : "GET";
 	let uri = form.action;
 	let payload = serializeForm(form);
 
-	let headers, body;
 	if(method === "GET") {
 		if(uri.indexOf("?") !== -1) {
 			throw new Error("query strings are invalid within `GET` forms' action");
 		}
 		uri = [uri, payload].join("?");
 	} else {
-		headers = {
-			"Content-Type": "application/x-www-form-urlencoded"
-		};
-		body = payload;
+		headers = headers || {};
+		headers["Content-Type"] = "application/x-www-form-urlencoded";
+		var body = payload; // eslint-disable-line no-var
 	}
 	return httpRequest(method, uri, headers, body, { cors, strict });
 }
