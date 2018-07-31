@@ -5,7 +5,7 @@ import httpRequest from "./http";
 export function submit(form, { headers, cors, strict } = {}) {
 	let { method } = form;
 	method = method ? method.toUpperCase() : "GET";
-	let uri = form.action;
+	let uri = form.getAttribute("action");
 	let payload = serializeForm(form);
 
 	if(method === "GET") {
