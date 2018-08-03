@@ -52,10 +52,12 @@ export function serializeForm(form) {
 				break;
 			case "radio":
 				if(!radios[name]) {
-					value = form.
-						querySelector(`input[type=radio][name=${name}]:checked`).
-						value;
-					radios[name] = true;
+					let field = form.
+						querySelector(`input[type=radio][name=${name}]:checked`);
+					value = field ? field.value : undefined;
+					if(value) {
+						radios[name] = true;
+					}
 				}
 				break;
 			default:
