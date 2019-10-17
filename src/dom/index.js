@@ -4,7 +4,7 @@ export function find(node, selector) {
 		[selector, node] = [node, selector];
 	}
 	let nodes = node.querySelectorAll(selector);
-	return [].slice.call(nodes);
+	return toArray(nodes);
 }
 
 export function replaceNode(oldNode, ...newNodes) {
@@ -22,3 +22,6 @@ export function prependChild(node, container) {
 export function removeNode(node) {
 	node.parentNode.removeChild(node);
 }
+
+let { slice } = Array.prototype;
+export let toArray = items => slice.call(items);
