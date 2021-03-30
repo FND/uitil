@@ -1,5 +1,7 @@
 let CHARSET = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
+export let uid = () => Date.now().toString(36) + Math.random().toString(36).substr(2);
+
 // generates pseudo-unique identifier, modeled on Purple Numbers
 export function nid(max = 9007199254740991) { // ≙ `Number.MAX_SAFE_INTEGER`
 	let i = Math.random() * max;
