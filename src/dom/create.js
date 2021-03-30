@@ -1,3 +1,5 @@
+/* eslint-env browser */
+
 // generates a DOM element
 // `params` describe attributes and/or properties, as determined by the
 // respective type (string or boolean attributes vs. arbitrary properties)
@@ -49,9 +51,8 @@ export function html2dom(parts, ...values) {
 		let val = values[i];
 		let blank = val === undefined || val === null || val === false;
 		return memo.concat(blank ? [part] : [part, val]);
-	}, []).join("");
+	}, []).join("").trim();
 
-	let tmp = document.createElement("div");
-	tmp.innerHTML = html.trim();
-	return tmp.childNodes[0];
+	let parser = new DOMParser();
+	return parser.parseFromString(html, "text/html").body.childNodes[0];
 }
