@@ -1,5 +1,5 @@
 /* eslint-env browser */
-import CustomTag from "./custom_tag";
+import CustomTag from "./custom_tag.js";
 
 // usage:
 //

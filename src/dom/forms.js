@@ -1,6 +1,6 @@
 /* eslint-env browser */
-import { find } from "./";
-import httpRequest from "./http";
+import { find } from "./index.js";
+import httpRequest from "./http.js";
 
 export function submit(form, { headers, cors, strict } = {}) {
 	let { method } = form;
